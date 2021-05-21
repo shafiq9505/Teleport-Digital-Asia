@@ -1,4 +1,4 @@
-import weather from './weather/weather'
+import weather from './weather/weatherStore'
 
 
 export const weatherStore = [weather]

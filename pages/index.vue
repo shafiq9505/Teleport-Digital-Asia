@@ -1,16 +1,14 @@
 <template>
 	<div class="container">
 		<div>
-			<Cities lala="salman bij" />
+			<Cities />
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	mounted() {
-		console.warn(this.$store)
-	},
+	mounted() {},
 	methods: {}
 }
 </script>

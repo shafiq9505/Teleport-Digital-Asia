@@ -1,4 +1,4 @@
-import webpack from 'webpack'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -40,8 +40,11 @@ export default {
     '@nuxtjs/axios',
   ],
 
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios : {
+    
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
