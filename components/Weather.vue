@@ -76,7 +76,7 @@
 
 <script>
 export default {
-	name: 'Cities',
+	name: 'Weather',
 	data() {
 		return {
 			formData: {

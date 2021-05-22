@@ -40,13 +40,13 @@ export default {
 		}
 	},
 	async mounted() {
-		this.fields.citiesSelection.options = _.cloneDeep(cities)
+		this.fields.citiesSelection.options = cities
 		this.formData.citiesModel = cities[0].city
-		this.onChangeCities()
+		await this.onChangeCities()
 	},
 	methods: {
 		async onChangeCities() {
-			this.$emit('onChangeCities', { city: this.formData.citiesModel })
+			await this.$emit('onChangeCities', { city: this.formData.citiesModel })
 		}
 	}
 }

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`data default assigned data 1`] = `
+Object {
+  "fields": Object {
+    "citiesSelection": Object {
+      "fieldAttr": Object {
+        "show": true,
+      },
+      "options": Array [],
+    },
+  },
+  "formData": Object {
+    "citiesModel": "",
+  },
+}
+`;

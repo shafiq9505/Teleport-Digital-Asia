@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`data default assigned data 1`] = `
+Object {
+  "fields": Object {
+    "weatherData": Object {
+      "fieldAttr": Object {
+        "show": true,
+      },
+      "options": Array [],
+    },
+  },
+  "formData": Object {
+    "weather": Object {
+      "shumidityky": "",
+      "sky": "",
+    },
+  },
+}
+`;
+
+exports[`methods getCurrentLocation emit current location 1`] = `
+Object {
+  "fields": Object {
+    "weatherData": Object {
+      "fieldAttr": Object {
+        "show": true,
+      },
+      "options": Array [],
+    },
+  },
+  "formData": Object {
+    "weather": Object {
+      "shumidityky": "",
+      "sky": "",
+    },
+  },
+}
+`;
