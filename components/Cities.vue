@@ -15,34 +15,22 @@
 						</b-form-group>
 					</b-col>
 				</b-row>
-
-				<Weather v-if="getWeather" :weatherObj="getWeather" />
 			</b-container>
 		</b-card-body>
 	</b-card>
 </template>
 <script>
 import cities from '../assets/json/cities.json'
-import { mapGetters } from 'vuex'
+
 export default {
 	name: 'Cities',
 	data() {
 		return {
 			formData: {
-				citiesModel: '',
-				weather: {
-					humidity: '123',
-					sky: 'clear'
-				}
+				citiesModel: ''
 			},
 			fields: {
 				citiesSelection: {
-					options: [],
-					fieldAttr: {
-						show: true
-					}
-				},
-				weatherData: {
 					options: [],
 					fieldAttr: {
 						show: true
@@ -51,30 +39,14 @@ export default {
 			}
 		}
 	},
-	computed: {
-		...mapGetters({
-			getWeather: 'weather/weatherStore/getWeather'
-		})
-	},
 	async mounted() {
-		await this.init()
+		this.fields.citiesSelection.options = _.cloneDeep(cities)
+		this.formData.citiesModel = cities[0].city
+		this.onChangeCities()
 	},
 	methods: {
-		async init() {
-			this.fields.citiesSelection.options = _.cloneDeep(cities)
-			this.formData.citiesModel = cities[0].city
-
-			await this.getCities()
-		},
 		async onChangeCities() {
-			await this.getCities()
-		},
-		async getCities() {
-			try {
-				await this.$store.dispatch('weather/weatherStore/fetchWeather', this.formData.citiesModel)
-			} catch (err) {
-				console.error(err)
-			}
+			this.$emit('onChangeCities', { city: this.formData.citiesModel })
 		}
 	}
 }

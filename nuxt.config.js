@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
- plugins : ['plugins/lodash'],
+ plugins : ['~plugins/lodash.js','plugins/spinner',{ src: '~/plugins/vuex-persisted.js', ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -39,8 +39,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
-
+  
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios : {
     
@@ -48,4 +47,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // nuxt loading
+  loading: '@/components/Loading.vue',
+ 
+
 }

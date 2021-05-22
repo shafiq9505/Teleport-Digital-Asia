@@ -2,7 +2,7 @@ import CONFIG from '@/config'
 import axios from 'axios'
 import { _ } from 'core-js'
 const service = {
-	async fetchWeather(city) {
+	async fetchWeather(data) {
 		try {
 			
 			const response = await request({
@@ -10,7 +10,9 @@ const service = {
 				url: CONFIG.URL_PATHS.WEATHER.WEATHER_URL,
 				method: 'POST',
 				params : {
-					q : city,
+					q : _.get(data,'city'),
+					lat:_.get(data,'lat'),
+					lon:_.get(data,'lon'),
 					appid :  CONFIG.WEATHER_API_KEY,
 					lang:'en',
 					mode: 'JSON'
@@ -24,9 +26,31 @@ const service = {
 			console.error('Error', err)
 			throw err
 		}
-	}
-	
+	},
+	async fetchWeatherForecast(data) {
+		try {
+			const response = await request({
+				baseURL : 'https://',
+				url: CONFIG.URL_PATHS.WEATHER.WEATHER_FORECAST_URL,
+				method: 'POST',
+				params : {
+					q : _.get(data,'city'),
+					lat:_.get(data,'lat'),
+					lon:_.get(data,'lon'),
+					appid :  CONFIG.WEATHER_API_KEY,
+					lang:'en',
+					mode: 'JSON'
+				},
+			})
 
+			if (!_.isEmpty(response)) {
+				return response
+			}
+		} catch (err) {
+			console.error('Error', err)
+			throw err
+		}
+	},
 
 }
 
